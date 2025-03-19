@@ -23,7 +23,7 @@ const Navbar = () => {
       {/* RESPONSIVE MENU */}
       <div className="">
         {/* MENU BUTTON */}
-        <button className="w-10 h-8 flex flex-col justify-between z-50 relative">
+        <button className="w-10 h-8 flex flex-col justify-between z-50 relative cursor-pointer">
           <div className="w-10 h-1 bg-white rounded"></div>
           <div className="w-10 h-1 bg-white rounded"></div>
           <div className="w-10 h-1 bg-white rounded"></div>
