@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import NavLink from "./navLink";
+import socials from "@/utils/socials";
 import {
   topVariants,
   centerVariants,
@@ -37,15 +38,11 @@ const Navbar = () => {
       </div>
       {/* SOCIALS */}
       <div className="hidden md:flex gap-4 w-1/3 xl:justify-center">
-        <Link href="#">
-          <Image src="/github.png" alt="" width={24} height={24} />
-        </Link>
-        <Link href="#">
-          <Image src="/linkedin.png" alt="" width={24} height={24} />
-        </Link>
-        <Link href="#">
-          <Image src="/facebook.png" alt="" width={24} height={24} />
-        </Link>
+        {socials.map((social) => (
+          <Link href="#" key={social.name}>
+            <Image src={social.src} alt="" width={24} height={24} />
+          </Link>
+        ))}
       </div>
       {/* RESPONSIVE MENU */}
       <div className="md:hidden">

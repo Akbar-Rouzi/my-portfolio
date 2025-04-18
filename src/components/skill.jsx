@@ -1,5 +1,5 @@
 import Scroll from "@/components/svgs/scroll";
-import skillList from "../utils/skillList";
+import skillSet from "@/utils/skillSet";
 const Skill = () => {
   return (
     <div className="flex flex-col gap-12 justify-center">
@@ -7,7 +7,7 @@ const Skill = () => {
       <h1 className="font-bold text-2xl">SKILLS</h1>
       {/* SKILL LIST */}
       <div className="flex gap-4 flex-wrap">
-        {skillList.map((skill) => (
+        {skillSet.map((skill) => (
           <div
             key={skill.name}
             className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black"

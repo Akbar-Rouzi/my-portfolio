@@ -1,4 +1,4 @@
-const skillList = [
+const skillSet = [
 	{ name: 'JavaScript' },
 	{ name: 'HTML' },
 	{ name: 'CSS' },
@@ -19,4 +19,4 @@ const skillList = [
 	{ name: 'Redux' },
 	{ name: 'GrapQL' },
 ];
-export default skillList
+export default skillSet
