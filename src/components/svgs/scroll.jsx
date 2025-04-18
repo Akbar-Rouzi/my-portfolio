@@ -1,8 +1,15 @@
 "use client ";
 
+import { motion } from "framer-motion";
+
 const Scroll = () => {
   return (
-    <div className="">
+    <motion.div
+      initial={{ opacity: 0.2, y: 0 }}
+      animate={{ opacity: 1, y: "10px" }}
+      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+      className=""
+    >
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -18,7 +25,7 @@ const Scroll = () => {
         <path d="M12 6V14" stroke="#000000" strokeWidth="1"></path>
         <path d="M15 11L12 14L9 11" stroke="#000000" strokeWidth="1"></path>
       </svg>
-    </div>
+    </motion.div>
   );
 };
 

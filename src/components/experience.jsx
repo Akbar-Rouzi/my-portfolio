@@ -1,10 +1,33 @@
+"use client";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+import { motion } from "framer-motion";
+
 const Experience = () => {
+  const experienceRef = useRef();
+  const isExperienceRefView = useInView(experienceRef, { margin: "-100px" });
+
   return (
-    <div className="flex flex-col gap-12 justify-center pb-48">
+    <div
+      className="flex flex-col gap-12 justify-center pb-48"
+      ref={experienceRef}
+    >
       {/* EXPERIENCE TITLE */}
-      <h1 className="font-bold text-2xl">EXPERIENCE</h1>
+      <motion.h1
+        initial={{ x: "-300px" }}
+        animate={isExperienceRefView ? { x: "0" } : {}}
+        transition={{ delay: 0.2 }}
+        className="font-bold text-2xl"
+      >
+        EXPERIENCE
+      </motion.h1>
       {/* EXPERIENCE LIST */}
-      <div className="">
+      <motion.div
+        initial={{ x: "-300px" }}
+        animate={isExperienceRefView ? { x: "0" } : {}}
+        transition={{ delay: 0.2 }}
+        className=""
+      >
         {/* EXPERIENCE LIST ITEM 01 */}
         <div className=" flex justify-between h-48">
           {/* LEFT */}
@@ -104,7 +127,7 @@ const Experience = () => {
           {/* RIGHT */}
           <div className="w-1/3"></div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

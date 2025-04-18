@@ -1,3 +1,5 @@
+"use client ";
+
 import Sign from "@/components/svgs/sign";
 import Scroll from "@/components/svgs/scroll";
 const Biography = () => {
