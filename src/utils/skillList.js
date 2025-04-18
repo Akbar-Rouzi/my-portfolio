@@ -1,0 +1,22 @@
+const skillList = [
+	{ name: 'JavaScript' },
+	{ name: 'HTML' },
+	{ name: 'CSS' },
+	{ name: 'TypeScript' },
+	{ name: 'React.js' },
+	{ name: 'Next.js' },
+	{ name: 'Angular.js' },
+	{ name: 'Vue.js' },
+	{ name: 'Sass' },
+	{ name: 'SCSS' },
+	{ name: 'Less' },
+	{ name: 'Tailwind CSS' },
+	{ name: 'Node.js' },
+	{ name: 'Express.js' },
+	{ name: 'SQL' },
+	{ name: 'MySQL' },
+	{ name: 'MongoDB' },
+	{ name: 'Redux' },
+	{ name: 'GrapQL' },
+];
+export default skillList
