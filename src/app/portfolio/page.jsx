@@ -3,14 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import projects from "@/utils/projects";
+import Dialog from "@/components/dialog";
 
 const PorfolioPage = () => {
   const ref = useRef();
   const { scrollYProgress } = useScroll({ target: ref });
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [activeProject, setActiveProject] = useState(null);
+
   return (
     <motion.div
       className="h-full"
@@ -47,11 +52,17 @@ const PorfolioPage = () => {
                   <p className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]">
                     {project.desc}
                   </p>
-                  <Link className="flex justify-end" href={project.link}>
-                    <button className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded">
+                  <div className="flex justify-end">
+                    <button
+                      onClick={() => {
+                        setActiveProject(project);
+                        setDialogOpen(true);
+                      }}
+                      className="flex justify-end p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded hover:bg-black hover:text-gray-200 cursor-pointer"
+                    >
                       See Demo
                     </button>
-                  </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -90,6 +101,11 @@ const PorfolioPage = () => {
           </Link>
         </div>
       </div>
+      <Dialog
+        isOpen={dialogOpen}
+        isActive={activeProject}
+        onClose={() => setDialogOpen(false)}
+      />
     </motion.div>
   );
 };
