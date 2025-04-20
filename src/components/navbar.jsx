@@ -39,8 +39,14 @@ const Navbar = () => {
       {/* SOCIALS */}
       <div className="hidden md:flex gap-4 w-1/3 xl:justify-center">
         {socials.map((social) => (
-          <Link href="#" key={social.name}>
-            <Image src={social.src} alt="" width={24} height={24} />
+          <Link href={social.url} key={social.name} passHref target="_blank">
+            <Image
+              src={social.src}
+              alt=""
+              width={24}
+              height={24}
+              className="transition-transform duration-300 hover:scale-125"
+            />
           </Link>
         ))}
       </div>
