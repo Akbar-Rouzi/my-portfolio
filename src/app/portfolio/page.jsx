@@ -37,10 +37,10 @@ const PorfolioPage = () => {
                 key={project.id}
               >
                 <div className="flex flex-col gap-8 text-white">
-                  <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
+                  <h1 className="text-xl font-bold md:text-2xl lg:text-4xl xl:text-6xl">
                     {project.title}
                   </h1>
-                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
+                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[280px] xl:w-[600px] xl:h-[300px]">
                     <Image
                       src={project.img}
                       alt=""
@@ -58,7 +58,7 @@ const PorfolioPage = () => {
                         setActiveProject(project);
                         setDialogOpen(true);
                       }}
-                      className="flex justify-end p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded hover:bg-black hover:text-gray-200 cursor-pointer"
+                      className="flex justify-end p-2 text-sm md:p-3 md:text-md lg:p-6 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded hover:bg-black hover:text-gray-200 cursor-pointer"
                     >
                       See Demo
                     </button>
