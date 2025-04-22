@@ -19,9 +19,9 @@ const Homepage = () => {
 						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
 				</div>
 				{/* TEXT CONTAINER */}
-				<div className="h-1/2 flex lg:h-full lg:w-1/2 flex-col gap-8 items-center justify-center">
+				<div className="h-1/2 flex lg:h-full lg:w-1/2 flex-col gap-4 md:gap-6 lg:gap-8 items-center justify-center">
 					{/* TITLE */}
-					<h1 className="text-4xl md:text-6xl font-bold"> Crafting Digital Experiences, Designing Tomorrow.</h1>
+					<h1 className="text-2xl md:text-4xl lg:text-6xl font-bold"> Crafting Digital Experiences, Designing Tomorrow.</h1>
 					{/* DESCRIPTION */}
 					<p className="">
 						Welcome to my digital canvas, where innovation and creativity
@@ -32,10 +32,10 @@ const Homepage = () => {
 					{/* BUTTONS */}
 					<div className="w-full flex gap-4">
 						<Link href="/portfolio">
-							<button className="p-4 rounded-lg ring-1 ring-black bg-black text-white hover:text-black hover:bg-white cursor-pointer">View My Work</button>
+							<button className="p-2 md:p-4 rounded-lg ring-1 ring-black bg-black text-white hover:text-black hover:bg-white cursor-pointer">View My Work</button>
 						</Link>
 						<Link href="/contact">
-							<button className="p-4 rounded-lg ring-1 ring-black hover:text-white hover:bg-black hover:ring-white cursor-pointer">Contact Me</button>
+							<button className="p-2 md:p-4 rounded-lg ring-1 ring-black hover:text-white hover:bg-black hover:ring-white cursor-pointer">Contact Me</button>
 						</Link>
 					</div>
 				</div>
