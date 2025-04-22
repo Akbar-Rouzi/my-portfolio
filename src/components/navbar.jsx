@@ -37,7 +37,7 @@ const Navbar = () => {
         </Link>
       </div>
       {/* SOCIALS */}
-      <div className="hidden md:flex gap-4 w-1/3 xl:justify-center">
+      <div className="hidden md:flex gap-4 w-1/3 justify-center">
         {socials.map((social) => (
           <Link href={social.url} key={social.name} passHref target="_blank">
             <Image
