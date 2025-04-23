@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import Brain from "@/components/svgs/brain";
 import Experience from "@/components/experience";
-import Biography from "@/components/biography";
+import Summary from "@/components/summary";
 import Skill from "@/components/skill";
 
 const AboutPage = () => {
@@ -21,8 +21,8 @@ const AboutPage = () => {
       <div className="h-full overflow-scroll lg:flex" ref={containerRef}>
         {/* TEXT CONTAINER */}
         <div className="p-4 sm:p-8 md:p-12 lg:p-16 xl:p-32 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2 ">
-          {/* BIOGRAPHY CONTAINER */}
-          <Biography />
+          {/* SUMMARY CONTAINER */}
+          <Summary />
           {/* SKILLS CONTAINER */}
           <Skill />
           {/* EXPERIENCE CONTAINER */}
