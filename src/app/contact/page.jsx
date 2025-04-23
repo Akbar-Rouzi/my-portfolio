@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 const ContactPage = () => {
@@ -8,6 +8,10 @@ const ContactPage = () => {
   const [error, setError] = useState(false);
   const text = "Say Hello";
   const form = useRef();
+  const textAreRef = useRef();
+  useEffect(() => {
+    textAreRef.current?.focus();
+  });
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -42,7 +46,7 @@ const ContactPage = () => {
     >
       <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* TEXT CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-4xl lg:text-6xl">
+        <div className="h-2/8 md:h-full lg:w-1/2 flex items-center justify-center text-4xl lg:text-6xl">
           <div>
             {text.split("").map((letter, index) => (
               <motion.span
@@ -65,19 +69,21 @@ const ContactPage = () => {
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-8 lg:p-16 xl:p-24"
+          className="overflow-y-auto max-h-[80vh] min-h-[60vh] lg:h-full lg:w-1/2 bg-red-50 rounded-xl md:text-xl flex flex-col gap-4 md:gap-8 justify-center p-4 lg:p-16 xl:p-24"
         >
           <span>Dear Akbar,</span>
           <textarea
             rows={6}
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+            className="bg-transparent border-b-1 md:border-b-2 border-b-black outline-none resize-none"
             name="user_message"
+            placeholder="Type your message here"
+            ref={textAreRef}
           />
-          <span>My email address: </span>
+          <span>Email address: </span>
           <input
             name="user_email"
             type="text"
-            className="bg-transparent border-b-2 border-b-black outline-none"
+            className="bg-transparent border-b-1 md:border-b-2 border-b-black outline-none"
           />
           <span>Regards</span>
           <button className="bg-purple-200 font-semibold text-gray-600 p-2 lg:p-4 hover:text-gray-200 cursor-pointer">
