@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import digital from "@/utils/digital";
 
 const Homepage = () => {
 	return (
@@ -19,23 +20,18 @@ const Homepage = () => {
 						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
 				</div>
 				{/* TEXT CONTAINER */}
-				<div className="h-1/2 flex lg:h-full lg:w-1/2 flex-col gap-4 md:gap-6 lg:gap-8 items-center justify-center">
+				<div className="h-1/2 flex lg:h-full lg:w-1/2 flex-col gap-4 md:gap-6 lg:gap-8 items-center justify-center my-16 sm:my-0 ">
 					{/* TITLE */}
-					<h1 className="text-2xl md:text-4xl lg:text-6xl font-bold"> Crafting Digital Experiences, Designing Tomorrow.</h1>
+					<h1 className="text-2xl md:text-4xl lg:text-6xl font-bold"> {digital.title}</h1>
 					{/* DESCRIPTION */}
-					<p className="">
-						Welcome to my digital canvas, where innovation and creativity
-						converge. With a keen eye for aesthetics and a mastery of code, my
-						portfolio showcases a diverse collection of projects that reflect my
-						commitment to excellence.
-					</p>
+					<p className="">{digital.desc}</p>
 					{/* BUTTONS */}
-					<div className="w-full flex gap-4">
+					<div className="w-full flex flex-col sm:flex-row gap-4">
 						<Link href="/portfolio">
-							<button className="p-2 md:p-4 rounded-lg ring-1 ring-black bg-black text-white hover:text-black hover:bg-white cursor-pointer">View My Work</button>
+							<button className="w-full p-2 md:p-4 rounded-lg ring-1 ring-black bg-black text-white hover:text-black hover:bg-white cursor-pointer">View My Work</button>
 						</Link>
 						<Link href="/contact">
-							<button className="p-2 md:p-4 rounded-lg ring-1 ring-black hover:text-white hover:bg-black hover:ring-white cursor-pointer">Contact Me</button>
+							<button className="w-full p-2 md:p-4 rounded-lg ring-1 ring-black hover:text-white hover:bg-black hover:ring-white cursor-pointer">Contact Me</button>
 						</Link>
 					</div>
 				</div>
