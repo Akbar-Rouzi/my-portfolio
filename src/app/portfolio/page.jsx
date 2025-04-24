@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 
 import projects from "@/utils/projects";
 import Dialog from "@/components/dialog";
+import WavyText from "@/components/wavyText";
 
 const PorfolioPage = () => {
   const ref = useRef();
@@ -24,8 +25,8 @@ const PorfolioPage = () => {
       transition={{ duration: 1 }}
     >
       <div className="h-[600vh] relative" ref={ref}>
-        <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-center text-4xl lg:text-6xl xl:text-8xl">
-          My Works
+        <div className="w-screen h-[calc(100vh-6rem)] flex flex-col gap-8 items-center justify-center text-center text-4xl lg:text-6xl xl:text-8xl">
+          <WavyText wavyText=" My Works" className="justify-center" />
         </div>
         {/* PROJECT LIST */}
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
@@ -72,7 +73,7 @@ const PorfolioPage = () => {
       {/* HIRE ME */}
       <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
         <h1 className="text-4xl lg:text-6xl xl:text-8xl">
-          Do you have a project?
+          <WavyText wavyText="Do you have a project?" />
         </h1>
         <div className="relative">
           <motion.svg
