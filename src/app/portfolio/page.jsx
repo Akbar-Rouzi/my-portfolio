@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import projects from "@/utils/projects";
 import Dialog from "@/components/dialog";
 import WavyText from "@/components/wavyText";
+import Scroll from "@/components/svgs/scroll";
 
 const PorfolioPage = () => {
   const ref = useRef();
@@ -27,6 +28,20 @@ const PorfolioPage = () => {
       <div className="h-[600vh] relative" ref={ref}>
         <div className="w-screen h-[calc(100vh-6rem)] flex flex-col gap-8 items-center justify-center text-center text-4xl lg:text-6xl xl:text-8xl">
           <WavyText wavyText=" My Works" className="justify-center" />
+          <Scroll width={100} height={200} y={60} duration={6} />
+          <motion.span
+            initial={{ color: "#6B7280" }}
+            animate={{ color: "#D8B4FE" }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "reverse",
+              duration: 5,
+              ease: "easeInOut",
+            }}
+            className="text-xl md:text-4xl"
+          >
+            Scroll down
+          </motion.span>
         </div>
         {/* PROJECT LIST */}
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
