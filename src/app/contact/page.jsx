@@ -143,6 +143,12 @@ const ContactPage = () => {
             ref={textAreRef}
             onChange={() => handleChange("message")}
           />
+          {/* Message Error */}
+          {formError.message && (
+            <span className="text-red-600 md:font-semibold">
+              {formError.message}
+            </span>
+          )}
           <span>Email address: </span>
           <input
             name="user_email"
@@ -151,22 +157,16 @@ const ContactPage = () => {
             ref={emailInputRef}
             onChange={() => handleChange("email")}
           />
+          {/* Email Error */}
+          {formError.email && (
+            <span className="text-red-600 md:font-semibold">
+              {formError.email}
+            </span>
+          )}
           <span>Regards</span>
           <button className="bg-purple-200 font-semibold text-gray-600 p-2 lg:p-4 hover:text-gray-200 cursor-pointer">
             Send
           </button>
-          {/* Message Error */}
-          {formError.message && (
-            <span className="text-red-600 font-semibold">
-              {formError.message}
-            </span>
-          )}
-          {/* Email Error */}
-          {formError.email && (
-            <span className="text-red-600 font-semibold">
-              {formError.email}
-            </span>
-          )}
 
           {/* SUCESS OR SYSTEM ERROR */}
           <AnimatePresence>
