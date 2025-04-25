@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# Ignore specific component files
+src/utils/jobs.js
+src/utils/skillSet.js

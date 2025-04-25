@@ -9,7 +9,7 @@ const StatusMessage = ({ type, message }) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.5 }}
-      className={`${colorClass} font-semibold`}
+      className={`${colorClass} md:font-semibold`}
     >
       {message}
     </motion.div>

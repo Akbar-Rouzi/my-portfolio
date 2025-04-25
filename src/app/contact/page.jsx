@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import StatusMessage from "@/components/statusMessage";
 import FadingText from "@/components/fadingText";
+import Loading from "@/components/loading";
 
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
@@ -17,6 +18,7 @@ const ContactPage = () => {
   });
   const emailInputRef = useRef();
   const [showStatusMessage, setShowStatusMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const text = "Say Hello";
 
@@ -54,6 +56,7 @@ const ContactPage = () => {
     setError(false);
     setSuccess(false);
     setFormError({ message: "", email: "" });
+    setLoading(true); // ⬅️ Start loading
 
     const message = form.current.user_message.value.trim();
     const email = form.current.user_email.value.trim();
@@ -66,6 +69,7 @@ const ContactPage = () => {
         behavior: "smooth",
         block: "center",
       });
+      setLoading(false); // ⬅️ Stop loading
       return;
     }
 
@@ -76,6 +80,7 @@ const ContactPage = () => {
         behavior: "smooth",
         block: "center",
       });
+      setLoading(false); // ⬅️ Stop loading
       return;
     }
 
@@ -92,11 +97,13 @@ const ContactPage = () => {
         () => {
           setSuccess(true);
           setShowStatusMessage(true);
+          setLoading(false); // ⬅️ Stop loading
           form.current.reset();
         },
         () => {
           setError(true);
           setShowStatusMessage(true);
+          setLoading(false); // ⬅️ Stop loading
         }
       );
   };
@@ -113,59 +120,61 @@ const ContactPage = () => {
         <div className="h-2/8 md:h-full lg:w-1/2 flex items-center justify-center text-4xl lg:text-6xl">
           <FadingText text={text} emoji="😊" />
         </div>
-        {/* FORM CONTAINER */}
-        <form
-          onSubmit={sendEmail}
-          ref={form}
-          className="overflow-y-auto max-h-[80vh] min-h-[70vh] lg:h-full lg:w-1/2 bg-red-50 rounded-xl md:text-xl flex flex-col gap-4 md:gap-8 justify-center p-4 lg:p-16 xl:p-24"
-        >
-          <span>Dear Akbar,</span>
-          <textarea
-            rows={6}
-            className="bg-transparent border-b-1 md:border-b-2 border-b-black outline-none resize-none flex-grow min-h-[120px]"
-            name="user_message"
-            placeholder="Type your message here"
-            ref={textAreRef}
-            onChange={() => handleChange("message")}
-          />
-          {/* Message Error */}
-          {formError.message && (
-            <span className="text-red-600 md:font-semibold">
-              {formError.message}
-            </span>
-          )}
-          <span>Email address: </span>
-          <input
-            name="user_email"
-            type="text"
-            className="bg-transparent border-b-1 md:border-b-2 border-b-black outline-none"
-            ref={emailInputRef}
-            onChange={() => handleChange("email")}
-          />
-          {/* Email Error */}
-          {formError.email && (
-            <span className="text-red-600 md:font-semibold">
-              {formError.email}
-            </span>
-          )}
-          <span>Regards</span>
-          <button className="bg-purple-200 font-semibold text-gray-600 p-2 lg:p-4 hover:text-gray-200 cursor-pointer">
-            Send
-          </button>
 
-          {/* SUCESS OR SYSTEM ERROR */}
-          <AnimatePresence>
-            {success && (
-              <StatusMessage
-                type="success"
-                message="Your message has been sent successfully!"
-              />
+        {/* FORM CONTAINER */}
+        <div className="lg:w-1/2 relative">
+          <form
+            onSubmit={sendEmail}
+            ref={form}
+            className="overflow-y-auto max-h-[80vh] min-h-[70vh] lg:h-full bg-red-50 rounded-xl md:text-xl flex flex-col gap-4 md:gap-8 justify-center p-4 lg:p-16 xl:p-24"
+          >
+            <span>Dear Akbar,</span>
+            <textarea
+              rows={6}
+              className="bg-transparent border-b-1 md:border-b-2 border-b-black outline-none resize-none flex-grow min-h-[120px]"
+              name="user_message"
+              placeholder="Type your message here"
+              ref={textAreRef}
+              onChange={() => handleChange("message")}
+            />
+            {formError.message && (
+              <span className="text-red-600 md:font-semibold">
+                {formError.message}
+              </span>
             )}
-            {error && (
-              <StatusMessage type="error" message="Something went wrong!" />
+            <span>Email address: </span>
+            <input
+              name="user_email"
+              type="text"
+              className="bg-transparent border-b-1 md:border-b-2 border-b-black outline-none"
+              ref={emailInputRef}
+              onChange={() => handleChange("email")}
+            />
+            {formError.email && (
+              <span className="text-red-600 md:font-semibold">
+                {formError.email}
+              </span>
             )}
-          </AnimatePresence>
-        </form>
+            <span>Regards</span>
+            <button className="bg-purple-200 font-semibold text-gray-600 p-2 lg:p-4 hover:text-gray-200 cursor-pointer">
+              Send
+            </button>
+            <AnimatePresence>
+              {success && (
+                <StatusMessage
+                  type="success"
+                  message="Your message has been sent successfully!"
+                />
+              )}
+              {error && (
+                <StatusMessage type="error" message="Something went wrong!" />
+              )}
+            </AnimatePresence>
+          </form>
+
+          {/* LOADING OVERLAY */}
+          <Loading loading={loading} />
+        </div>
       </div>
     </motion.div>
   );
