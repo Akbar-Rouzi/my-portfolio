@@ -9,6 +9,7 @@ import projects from "@/utils/projects";
 import Dialog from "@/components/dialog";
 import WavyText from "@/components/wavyText";
 import Scroll from "@/components/svgs/scroll";
+import FadingText from "@/components/fadingText";
 
 const PorfolioPage = () => {
   const ref = useRef();
@@ -35,7 +36,7 @@ const PorfolioPage = () => {
             transition={{
               repeat: Infinity,
               repeatType: "reverse",
-              duration: 5,
+              duration: 2,
               ease: "easeInOut",
             }}
             className="text-xl md:text-4xl"
@@ -86,9 +87,9 @@ const PorfolioPage = () => {
         </div>
       </div>
       {/* HIRE ME */}
-      <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
-        <h1 className="text-4xl lg:text-6xl xl:text-8xl">
-          <WavyText wavyText="Do you have a project?" />
+      <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center xl:mt-10">
+        <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-8xl">
+          <FadingText text="Do you have a project?" />
         </h1>
         <div className="relative">
           <motion.svg

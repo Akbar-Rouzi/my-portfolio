@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import StatusMessage from "@/components/statusMessage";
+import FadingText from "@/components/fadingText";
 
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
@@ -110,23 +111,7 @@ const ContactPage = () => {
       <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* TEXT CONTAINER */}
         <div className="h-2/8 md:h-full lg:w-1/2 flex items-center justify-center text-4xl lg:text-6xl">
-          <div>
-            {text.split("").map((letter, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 0 }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  delay: index * 0.1,
-                }}
-              >
-                {letter}
-              </motion.span>
-            ))}
-            😊
-          </div>
+          <FadingText text={text} emoji="😊" />
         </div>
         {/* FORM CONTAINER */}
         <form
