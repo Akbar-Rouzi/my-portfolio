@@ -13,7 +13,7 @@ import FadingText from "@/components/fadingText";
 
 const PorfolioPage = () => {
   const ref = useRef();
-  const { scrollYProgress } = useScroll({ target: ref });
+  const { scrollYProgress } = useScroll();
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -64,6 +64,7 @@ const PorfolioPage = () => {
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       priority
+                      unoptimized
                     />
                   </div>
                   <p className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]">
