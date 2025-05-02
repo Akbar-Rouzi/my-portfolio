@@ -5,11 +5,16 @@ import Scroll from "@/components/svgs/scroll";
 import summary from "@/utils/summaryData";
 const Biography = () => {
   return (
-    <div className="flex flex-col gap-6 md:gap-12 justify-center">
+    <div className="flex flex-col gap-3 md:gap-6 justify-center">
       {/* SUMMARY TITLE */}
       <h1 className="font-bold text-2xl">{summary.title}</h1>
       {/* SUMMARY DESC */}
-      <p className="text-lg">{summary.desc}</p>
+      {summary.desc.map((item) => (
+        <p className="md:text-lg" key={item.id}>
+          {item.p}
+        </p>
+      ))}
+
       {/* SUMMARY QUOTE */}
       <span className="italic">{summary.quote}</span>
       {/* SUMMARY SIGN SVG*/}

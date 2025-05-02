@@ -4,16 +4,32 @@ import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
 import jobs from "@/utils/jobs";
 import JobCard from "./jobCard";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const Experience = () => {
   const experienceRef = useRef();
   const isInView = useInView(experienceRef, { margin: "-100px" });
+  const isMobile = useIsMobile();
 
   const animateFromLeft = {
     initial: { x: "-300px" },
     animate: isInView ? { x: "0" } : {},
     transition: { delay: 0.2 },
   };
+
+  if (isMobile) {
+    // Mobile: render stacked JobCards only
+    return (
+      <div className="flex flex-col gap-6" ref={experienceRef}>
+        <motion.h1 {...animateFromLeft} className="font-bold text-2xl">
+          EXPERIENCE
+        </motion.h1>
+        {jobs.map((job, index) => (
+          <JobCard key={index} job={job} isMobile={isMobile} />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div
@@ -27,7 +43,7 @@ const Experience = () => {
       {/* Timeline */}
       <motion.div {...animateFromLeft} className="">
         {jobs.map((job, index) => (
-          <div key={index} className=" flex h-48">
+          <div key={index} className=" flex h-52">
             {/* LEFT */}
             <div className="flex-1 pr-4">
               {index % 2 === 0 && <JobCard job={job} />}
