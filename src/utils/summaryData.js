@@ -2,23 +2,23 @@ const summaryData = {
 	title: 'SUMMARY',
 	desc: [
 		{
-			p: 'Innovative and detail-oriented front-end developer skilled in building scalable, high-performance web applications    with modern frameworks and technologies',
+			p: 'Front-end developer experienced in building scalable, high-performance web applications using React, Next.js, JavaScript, TypeScript, Vue, Angular, HTML5, CSS3, and Tailwind CSS.',
 			id: 'p1'
 		},
 		{
-			p: 'Expert in JavaScript, TypeScript, React, Vue, Angular, HTML5, CSS3 and TailwindCSS, specializing in custom UI components, responsive design, cross-browser compatibility, and performance optimization.',
+			p: 'Specialized in custom UI components, responsive design, and performance optimization across browsers.',
 			id: 'p2'
 		},
 		{
-			p: 'Experienced in Node.js and Express.js for backend development, API integration, and server-side logic implementation. Have a strong knowledge of JAVA.',
+			p: 'Skilled in Node.js and Express.js for backend APIs and server-side logic, with solid knowledge of Java.',
 			id: 'p3'
 		},
 		{
-			p:'Strong knowledge of Salesforce Administration, Apex, SOQL, DML, Trigger and LWC, with a background in workflow automation and customization',
+			p:'Strong Salesforce background: Administration, Apex, SOQL, DML, Triggers, and LWC',
 			id:'p4'
 		},
 		{
-			p:'Passionate about mentoring junior developers, collaborating with cross-functional teams, and driving innovation through clean, efficient, and maintainable code. Enthusiastic, always learning new technologies.',
+			p:'Collaborative team player with mentoring experience; passionate about clean code, innovation, and continuous learning.',
 			id:'p5'
 		}
 	],
